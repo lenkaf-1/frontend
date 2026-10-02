@@ -1,5 +1,9 @@
 <script setup>
+import { ref } from "vue";
 const count = ref(0);
+function increment() {
+  count.value++;
+}
 </script>
 
 <template>
@@ -16,6 +20,8 @@ const count = ref(0);
       <HelloWorld msg="You did it!" />
     </div>
   </header>
+  <p>Počet: {{ count }}</p>
+    <button @click="increment">Pridať</button>
 
   <main>
     <TheWelcome />
