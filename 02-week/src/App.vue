@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+const count = ref(0);
+</script>
 
 <template>
   <header>
