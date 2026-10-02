@@ -1,9 +1,18 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 const count = ref(0);
 function increment() {
   count.value++;
 }
+function decrement() {
+  count.value--;
+}
+function reset() {
+  count.value = 0;
+}
+const doubleCount = computed(() => {
+  return count.value * 2;
+});
 </script>
 
 <template>
@@ -15,13 +24,13 @@ function increment() {
       width="125"
       height="125"
     />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
   </header>
   <p>Počet: {{ count }}</p>
-    <button @click="increment">Pridať</button>
+  <button @click="increment">Pridať</button>  
+  <button @click="decrement">Odobrať</button>  
+  <button @click="reset">Reset</button>
+
+  <p>Dvojnásobok: {{ doubleCount }}</p>
 
   <main>
     <TheWelcome />
