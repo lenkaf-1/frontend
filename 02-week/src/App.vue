@@ -2,6 +2,7 @@
 import { ref, computed } from "vue";
 const count = ref(0);
 const number = ref(0);
+
 function increment() {
   count.value++;
 }
@@ -10,6 +11,9 @@ function decrement() {
 }
 function reset() {
   count.value = 0;
+}
+function resetp() {
+  number.value = 0;
 }
 const doubleCount = computed(() => {
   return count.value * 2;
@@ -27,12 +31,13 @@ const doubleCount = computed(() => {
     />
   </header>
   <div>
-    <h2 :class="number >= 0 ? 'zelena' : 'cervena'">
+    <h2 :class="number > 0 ? 'zelena' : number < 0 ? 'cervena' : 'siva'">
       {{ number }}
     </h2>
 
     <button @click="number++">Increment</button>
     <button @click="number--">Decrement</button>
+    <button @click="resetp">Reset</button>
   </div>
   <p>Počet: {{ count }}</p>
   <button @click="increment">Pridať</button>  
@@ -78,5 +83,8 @@ header {
 }
 .zelena {
   background-color: green;
+}
+.siva {
+  background-color: grey;
 }
 </style>
