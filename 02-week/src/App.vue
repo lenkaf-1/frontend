@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from "vue";
 const count = ref(0);
+const number = ref(0);
 function increment() {
   count.value++;
 }
@@ -25,6 +26,14 @@ const doubleCount = computed(() => {
       height="125"
     />
   </header>
+  <div>
+    <h2 :class="number >= 0 ? 'zelena' : 'cervena'">
+      {{ number }}
+    </h2>
+
+    <button @click="number++">Increment</button>
+    <button @click="number--">Decrement</button>
+  </div>
   <p>Počet: {{ count }}</p>
   <button @click="increment">Pridať</button>  
   <button @click="decrement">Odobrať</button>  
@@ -63,5 +72,11 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
+}
+.cervena {
+  background-color: red;
+}
+.zelena {
+  background-color: green;
 }
 </style>
