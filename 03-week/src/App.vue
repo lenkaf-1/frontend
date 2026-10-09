@@ -1,11 +1,27 @@
 <script setup>
-import HelloWorld from "./components/HelloWorld.vue";
-import TheWelcome from "./components/TheWelcome.vue";
+import {
+  ref,
+  onBeforeMount,
+  onMounted,
+  onBeforeUpdate,
+  onUpdated,
+  onBeforeUnmount,
+  onUnmounted,
+} from "vue";
+const StastneCislo = ref(0);
+function random() {
+  StastneCislo.value = Math.floor(Math.random() * 101);
+}
+onMounted(() => {
+  console.log("mounted hook");
+  random();
+});
 </script>
 
 <template>
   <div>
     <h1>Hello world!</h1>
+    <h1>Moje stastne cislo: {{ StastneCislo }}</h1>
     <p>{{ myString }}</p>
   </div>
 </template>
