@@ -12,12 +12,13 @@ function decrement() {
 function reset() {
   count.value = 0;
 }
+
 function resetp() {
   number.value = 0;
 }
-const doubleCount = computed(() => {
-  return count.value * 2;
-});
+
+const doubleCount = computed(() => count.value * 2);
+const mocnina = computed(() => count.value * count.value);
 </script>
 
 <template>
@@ -35,8 +36,8 @@ const doubleCount = computed(() => {
       {{ number }}
     </h2>
 
-    <button @click="number++">Increment</button>
-    <button @click="number--">Decrement</button>
+    <button @click="number++" :class="{ hide: number > 5 }">Increment</button>
+    <button @click="number--" :class="{ hide: number < -5 }">Decrement</button>
     <button @click="resetp">Reset</button>
   </div>
   <p>Počet: {{ count }}</p>
@@ -45,6 +46,7 @@ const doubleCount = computed(() => {
   <button @click="reset">Reset</button>
 
   <p>Dvojnásobok: {{ doubleCount }}</p>
+  <p>Mocnina: {{ mocnina }}</p>
 
   <main>
     <TheWelcome />
@@ -86,5 +88,8 @@ header {
 }
 .siva {
   background-color: grey;
+}
+.hide {
+  display: none;
 }
 </style>
