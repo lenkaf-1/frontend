@@ -33,7 +33,10 @@ onMounted(() => {
     <h1>Moje stastne cislo: {{ StastneCislo }}</h1>
 
     <textarea v-model="markdowntext" :disabled="velkost()"></textarea>
-
+    <div v-if="velkost()">
+      <button @click="markdowntext = ''">Vymazať</button>
+    </div>
+    <div v-else>Reťazec je kratší ako 10 znakov</div>
     <div v-html="markdowntext"></div>
     <textarea :cols="stlpce" :rows="riadky"></textarea>
 
