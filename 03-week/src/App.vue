@@ -8,6 +8,8 @@ import {
   onBeforeUnmount,
   onUnmounted,
 } from "vue";
+const stlpce = ref(20);
+const riadky = ref(5);
 const StastneCislo = ref(0);
 const markdowntext = ref("");
 function random() {
@@ -15,6 +17,9 @@ function random() {
 }
 function ulozDoPremennej(event) {
   markdowntext.value = event.target.value;
+}
+function velkost() {
+  return markdowntext.value.length > 10;
 }
 onMounted(() => {
   console.log("mounted hook");
@@ -27,9 +32,13 @@ onMounted(() => {
     <h1>Hello world!</h1>
     <h1>Moje stastne cislo: {{ StastneCislo }}</h1>
 
-    <textarea v-model="markdowntext" @keydown="ulozDoPremennej"></textarea>
+    <textarea v-model="markdowntext" :disabled="velkost()"></textarea>
 
     <div v-html="markdowntext"></div>
+    <textarea :cols="stlpce" :rows="riadky"></textarea>
+
+    <input type="number" v-model.number="stlpce" />
+    <input type="number" v-model.number="riadky" />
   </div>
 </template>
 
