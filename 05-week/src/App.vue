@@ -3,5 +3,12 @@ import Blog from "./components/blog.vue";
 </script>
 
 <template>
-  <Blog> </Blog>
+  <header>
+    <nav>
+      <RouterLink to="/">Domov</RouterLink> |
+      <RouterLink to="/blogview">Blog</RouterLink>
+    </nav>
+  </header>
+
+  <RouterView />
 </template>
