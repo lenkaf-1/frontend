@@ -21,13 +21,13 @@ const destination = computed(() =>
     <img :src="`/images/${destination.image}`" :alt="destination.name" />
     <p>{{ destination.description }}</p>
 
-    <h2>Experiences</h2>
-    <ul>
-      <li
-        v-for="experience in destination.experiences"
-        :key="experience.slug"
-      >
+    <section class="experiences">
+      <h2>Top Experiences in {{ destination.name }}</h2>
+      <div class="cards">
         <RouterLink
+          v-for="experience in destination.experiences"
+          :key="experience.slug"
+          class="card"
           :to="{
             name: 'experience',
             params: {
@@ -36,12 +36,12 @@ const destination = computed(() =>
             },
           }"
         >
-          {{ experience.name }}
+          <img :src="`/images/${experience.image}`" :alt="experience.name" />
+          <span class="card__text">{{ experience.name }}</span>
         </RouterLink>
-      </li>
-    </ul>
-
-    <RouterView />
+      </div>
+      <RouterView />
+    </section>
   </main>
   <p v-else>Destination not found.</p>
 </template>
