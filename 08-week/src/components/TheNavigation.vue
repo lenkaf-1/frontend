@@ -2,7 +2,6 @@
   <header>
     <nav id="nav">
       <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
       <RouterLink to="/destination/brazil">Brasil</RouterLink>
       <RouterLink to="/destination/panama">Panama</RouterLink>
       <RouterLink to="/destination/hawaii">Hawaii</RouterLink>

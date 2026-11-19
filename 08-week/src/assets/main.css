@@ -24,7 +24,6 @@ a:visited {
   max-width: 960px;
 }
 
-/* Home */
 .home img {
   max-width: 230px;
 }
@@ -33,7 +32,6 @@ a:visited {
   justify-content: space-between;
 }
 
-/* Navigation */
 #nav {
   position: fixed;
   top: 0;
@@ -73,7 +71,6 @@ a {
   font-weight: bold;
 }
 
-/* Destination Details */
 .destination-details {
   display: flex;
   gap: 30px;
@@ -85,7 +82,6 @@ a {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
-/*Experiences*/
 .experiences {
   padding-top: 30px;
   padding-bottom: 60px;
@@ -121,12 +117,14 @@ a {
   padding: 10px;
 }
 
-.experience-details img {
-  float: left;
-  margin: 10px;
+.experience-details {
+  border: 2px solid #333;
+  outline: 2px solid #888;
+  outline-offset: 4px;
+  padding: 16px;
+  margin-top: 20px;
 }
 
-/*Modal Overlay*/
 .modal-overlay:before {
   content: "";
   position: fixed;
@@ -162,7 +160,7 @@ a {
   display: inline-block;
   margin-bottom: 15px;
 }
-/* Form */
+
 .form {
   display: flex;
   flex-direction: column;

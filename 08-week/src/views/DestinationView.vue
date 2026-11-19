@@ -20,6 +20,7 @@ const destination = computed(() =>
     <h1>{{ destination.name }}</h1>
     <img :src="`/images/${destination.image}`" :alt="destination.name" />
     <p>{{ destination.description }}</p>
+    <button @click="$router.back()">GO BACK</button>
 
     <section class="experiences">
       <h2>Top Experiences in {{ destination.name }}</h2>
